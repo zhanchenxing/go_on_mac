@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Data>
+	<myname> zhanchenxing </myname>
+	<myage>30</myage>
+	<myage>31</myage>
+
+	<sub where="home">
+		<sub1> this is sub1 </sub1>
+		<sub2> this is sub2 </sub2>
+	</sub>
+
+	<sub where="office">
+		<sub1> this is sub3 </sub1>
+		<sub2> this is sub4 </sub2>
+	</sub>
+
+	<sub where="None">
+		<sub1> this is sub5 </sub1>
+		<sub2> this is sub6 </sub2>
+	</sub>
+
+</Data>
+
