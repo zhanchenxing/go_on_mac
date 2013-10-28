@@ -5,23 +5,23 @@ import (
     "fmt"
 )
 
-type TestWriter struct{
+type TestReaderWriter struct{
     buff []byte
 }
 
-func MakeTestWriter () (*TestWriter){
-    t := TestWriter{}
+func MakeTestReaderWriter () (*TestReaderWriter){
+    t := TestReaderWriter{}
     t.buff = make( []byte, 0, 2048 )
     return &t
 }
 
-func (t *TestWriter) Write(b []byte) (int, error) {
-    fmt.Println("TestWriter writting", b)
+func (t *TestReaderWriter) Write(b []byte) (int, error) {
+    fmt.Println("TestReaderWriter writting", b)
     t.buff = append( t.buff, b...)
     return len(b), nil
 }
 
-func (t *TestWriter) Read(b []byte) (n int, err error) {
+func (t *TestReaderWriter) Read(b []byte) (n int, err error) {
     todo := aesrw.Min( len(b), len(t.buff) )
     fmt.Println("len(b)=", len(b), "len(t.buff)=", len(t.buff), "todo=", todo)
     copy( b[:todo], t.buff[:todo] )
@@ -30,7 +30,7 @@ func (t *TestWriter) Read(b []byte) (n int, err error) {
 }
 
 func main(){
-    t := TestWriter{}
+    t := TestReaderWriter{}
     w,e :=aesrw.MakeAESWriter(&t )
     if e != nil {
         fmt.Println("MakeAESWriter failed", e)
